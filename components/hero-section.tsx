@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import FeaturedClients from "./featured-clients";
 import BrandsSection from "./brands-section";
@@ -129,7 +128,7 @@ export default function HeroSection() {
               <p className="text-base font-light leading-relaxed text-gray-600 mb-6">
                 From learning to building production-grade systems used by thousands. 
                 I specialize in the modern web trifecta: React, Next.js, and Tailwind CSS, 
-                enhanced with AI capabilities and cloud infrastructure. Whether it's a SaaS platform 
+                enhanced with AI capabilities and cloud infrastructure. Whether it&apos;s a SaaS platform 
                 generating revenue or an open-source tool serving developers worldwide, 
                 I architect solutions from prototype to production.
               </p>
