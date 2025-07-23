@@ -8,24 +8,29 @@ function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-      <Link className="text-sm sm:text-base tracking-tight" href="/">
-        DesignMinds®
+      <Link className="text-sm sm:text-base tracking-tight font-semibold" href="/">
+        EZ Studio®
       </Link>
       <nav className="hidden md:block">
         <ul className="flex space-x-4 sm:space-x-6 lg:space-x-8 text-xs sm:text-sm tracking-tight">
           <li>
-            <Link href="/case-studies" className="hover:underline">
-              CASE STUDIES
+            <Link href="/projects" className="hover:underline">
+              PROJECTS
             </Link>
           </li>
           <li>
-            <Link href="/work" className="hover:underline">
-              WORK
+            <Link href="/services" className="hover:underline">
+              SERVICES
             </Link>
           </li>
           <li>
             <Link href="/about" className="hover:underline">
               ABOUT
+            </Link>
+          </li>
+          <li>
+            <Link href="/experience" className="hover:underline">
+              EXPERIENCE
             </Link>
           </li>
           <li>
@@ -47,18 +52,23 @@ function SiteHeader() {
           <nav className="flex flex-col items-center justify-center h-full">
             <ul className="space-y-8 text-lg">
               <li>
-                <Link href="/case-studies" onClick={() => setIsMenuOpen(false)}>
-                  CASE STUDIES
+                <Link href="/projects" onClick={() => setIsMenuOpen(false)}>
+                  PROJECTS
                 </Link>
               </li>
               <li>
-                <Link href="/work" onClick={() => setIsMenuOpen(false)}>
-                  WORK
+                <Link href="/services" onClick={() => setIsMenuOpen(false)}>
+                  SERVICES
                 </Link>
               </li>
               <li>
                 <Link href="/about" onClick={() => setIsMenuOpen(false)}>
                   ABOUT
+                </Link>
+              </li>
+              <li>
+                <Link href="/experience" onClick={() => setIsMenuOpen(false)}>
+                  EXPERIENCE
                 </Link>
               </li>
               <li>

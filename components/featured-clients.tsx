@@ -2,38 +2,60 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function FeaturedClients() {
-  const clients = [
+  const featuredProjects = [
     {
-      logo: "https://cdn.magicui.design/companies/Spotify.svg",
-      name: "Spotify",
-      description:
-        "Spotify reached out to us to create a new design system and conduct an overhaul of the brand's digital experience. The objective was to provide customers with seamless purchasing journeys and we did this by combining robust user experience with strong and engaging content.",
-      buttonText: "VIEW CASE STUDY",
+      logo: "https://cdn.magicui.design/companies/OpenAI.svg",
+      name: "SearchFast",
+      description: "AI Assistant for macOS that's 100% free and open-source. Local-first, AI-powered assistant that sees what you see and listens when you speak. Integrates seamlessly with macOS apps using Claude, Mistral, Whisper, and Eleven Labs with no cloud data storage.",
+      buttonText: "VIEW PROJECT",
       buttonLink: "#",
+      tech: "Claude • Mistral • Whisper • macOS",
+      status: "Open Source"
     },
     {
-      logo: "https://cdn.magicui.design/companies/Instagram.svg",
-      name: "Off-White™",
-      description:
-        "We were brought in to refresh their primary digital properties with a particular focus on building a robust eCommerce capability that re-imaged the way consumers purchase tyres, wheels and batteries online. We achieved this by crafting an informative and intuitive purchasing experience, backed by comprehensive usability research and validation.",
-      buttonText: "VIEW CASE STUDY",
+      logo: "https://cdn.magicui.design/companies/Vercel.svg", 
+      name: "Easy UI Premium",
+      description: "Beautifully designed NextJS website templates and sections generating $15k+ in revenue. Reduces landing page development time by 70% through pre-built conversion-optimized sections, landing pages and integrations. Serves 100k+ developers worldwide.",
+      buttonText: "VIEW PROJECT",
       buttonLink: "#",
+      tech: "Next.js • React • Tailwind • shadcn/ui",
+      status: "$15k+ Revenue"
     },
     {
-      logo: "https://cdn.magicui.design/companies/Amazon.svg",
-      name: "Sky Studios",
-      description:
-        'In collaboration with sky\'s development partner +OneX, we created a "best-in-class" eCommerce experience underpinned and validated by an in-depth research study that focussed on incorporating the best possible UX principles and analyses.',
-      buttonText: "VIEW WORK",
-      buttonLink: "#",
+      logo: "https://cdn.magicui.design/companies/Meta.svg",
+      name: "Brand Studio", 
+      description: "AI-Powered Social Media Growth Platform for creating, managing, and scheduling thousands of high-converting posts for X and LinkedIn. Generate 1000s of posts, maintain brand consistency, and save 10+ hours per week.",
+      buttonText: "VIEW PROJECT",
+      buttonLink: "#", 
+      tech: "Next.js • TypeScript • OpenAI GPT-4 • Supabase",
+      status: "SaaS Platform"
     },
     {
-      logo: "https://cdn.magicui.design/companies/Google.svg",
-      name: "LILLÉ BABY",
-      description:
-        "In collaboration with Promise Brand Specialists, we were tasked to create an elevated digital experience to reflect the innovative and performance-oriented nature of the brand. The primary goal of the website was to provide a seamless digital service when looking for key information as well as placing and paying for cement orders online.",
-      buttonText: "VIEW WORK",
+      logo: "https://cdn.magicui.design/companies/Stripe.svg",
+      name: "Reachactory",
+      description: "SaaS/AI tool distribution platform generating $1.5K+ revenue. Developed with Next.js, React, and Tailwind CSS for optimal UI/UX. Utilizes Vercel, Buildspace, and Stripe for advanced functionality with agile methodologies.",
+      buttonText: "VIEW PROJECT", 
       buttonLink: "#",
+      tech: "Next.js • React • Stripe • Vercel",
+      status: "$1.5k+ Revenue"
+    },
+    {
+      logo: "https://cdn.magicui.design/companies/GitHub.svg",
+      name: "Easy UI",
+      description: "Open-source component library with 235+ GitHub stars delivering 50+ production-ready animated UI elements. Serves 100k+ developers with React/Tailwind components that complement shadcn/ui workflows.",
+      buttonText: "VIEW GITHUB",
+      buttonLink: "#",
+      tech: "React • Tailwind • TypeScript • Open Source", 
+      status: "235+ ⭐"
+    },
+    {
+      logo: "https://cdn.magicui.design/companies/React.svg",
+      name: "AON APP",
+      description: "AI app to repair electronic devices (Fridge, Microwave, Washing machine) built for Denmark-based startup. Features React Native, Nativewind, shadcn UI, Firebase, and OpenAI API integration for intelligent device diagnostics.",
+      buttonText: "VIEW PROJECT",
+      buttonLink: "#",
+      tech: "React Native • Firebase • OpenAI • shadcn/ui",
+      status: "Startup Project"
     },
   ];
 
@@ -41,26 +63,35 @@ export default function FeaturedClients() {
     <section className="w-full py-20 bg-[#f5f5f5]">
       <div className="container px-4 md:px-0 lg:px-0 max-w-[1400px] mx-auto">
         <h2 className="text-3xl sm:text-5xl md:text-4xl lg:text-[4rem] font-extralight leading-[1.1] tracking-[-0.02em] mb-12">
-          FEATURED CLIENTS
+          FEATURED PROJECTS
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-24">
-          {clients.map((client, index) => (
+          {featuredProjects.map((project, index) => (
             <div key={index} className="space-y-6 mt-10">
-              <Image
-                src={client.logo}
-                alt={`${client.name} logo`}
-                width={132}
-                height={40}
-                className="h-15 w-auto object-contain"
-              />
+              <div className="flex items-center justify-between">
+                <Image
+                  src={project.logo}
+                  alt={`${project.name} logo`}
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 object-contain"
+                />
+                <span className="text-[0.65rem] tracking-wider bg-black text-white px-3 py-1 rounded">
+                  {project.status}
+                </span>
+              </div>
+              <h3 className="text-xl font-medium tracking-tight">{project.name}</h3>
               <p className="text-[15px] leading-[1.6] text-gray-800 pr-8">
-                {client.description}
+                {project.description}
               </p>
+              <div className="text-[0.65rem] tracking-wider text-blue-600 font-medium">
+                {project.tech}
+              </div>
               <Link
-                href={client.buttonLink}
+                href={project.buttonLink}
                 className="inline-flex h-8 items-center justify-center bg-black text-white px-5 text-[11px] tracking-[0.06em] hover:bg-black/90 rounded-full"
               >
-                {client.buttonText}
+                {project.buttonText}
               </Link>
             </div>
           ))}

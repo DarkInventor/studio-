@@ -3,88 +3,82 @@
 import Image from "next/image";
 import { useState } from "react";
 
-interface Brand {
+interface TechCategory {
   name: string;
   services: string;
   description: string;
 }
 
 export default function BrandsSection() {
-  const [expandedBrand, setExpandedBrand] = useState<string | null>(null);
+  const [expandedTech, setExpandedTech] = useState<string | null>(null);
 
-  const brands: Brand[] = [
+  const techStack: TechCategory[] = [
     {
-      name: "LVMH",
-      services: "RESEARCH · STRATEGY · DESIGN · DEVELOPMENT",
+      name: "FRONTEND FRAMEWORKS",
+      services: "REACT · NEXT.JS · TAILWIND CSS · TYPESCRIPT",
       description:
-        "Luxury brand conglomerate. We provided comprehensive digital solutions across their portfolio.",
+        "Modern React ecosystem with Next.js for production-grade applications. Tailwind CSS for rapid UI development and TypeScript for type safety and better developer experience.",
     },
     {
-      name: "VIVIDSCAPE FLOW",
-      services: "DESIGN",
+      name: "BACKEND & API",
+      services: "NODE.JS · EXPRESS · FASTAPI · DJANGO",
       description:
-        "Innovative design agency. We collaborated on cutting-edge UI/UX projects for their clients.",
+        "Full-stack development with Node.js and Express for JavaScript backends, FastAPI for high-performance Python APIs, and Django for rapid prototyping and complex applications.",
     },
     {
-      name: "ELEVATE DESIGN",
-      services: "RESEARCH · STRATEGY · DESIGN · DEVELOPMENT",
+      name: "AI & MACHINE LEARNING",
+      services: "OPENAI · LANGCHAIN · VERCEL AI SDK · FINE-TUNING",
       description:
-        "Boutique design firm. We assisted in developing their digital presence and client projects.",
+        "Advanced AI integration using OpenAI GPT models, Langchain for complex AI workflows, Vercel AI SDK for streaming responses, and custom model fine-tuning for specialized use cases.",
     },
     {
-      name: "BENDPHIL",
-      services: "STRATEGY · DESIGN · DEVELOPMENT",
+      name: "MOBILE DEVELOPMENT",
+      services: "REACT NATIVE · NATIVEWIND · EXPO",
       description:
-        "Tech startup. We helped shape their product strategy and develop their MVP.",
+        "Cross-platform mobile development with React Native, styled with NativeWind for consistent design systems, and Expo for rapid deployment and testing.",
     },
     {
-      name: "VANIA",
-      services: "RESEARCH · STRATEGY · DESIGN · DEVELOPMENT",
+      name: "DATABASES & STORAGE",
+      services: "POSTGRESQL · MONGODB · FIREBASE · SUPABASE",
       description:
-        "Fashion retailer. We overhauled their e-commerce platform and digital marketing strategy.",
+        "Scalable database solutions from SQL (PostgreSQL) to NoSQL (MongoDB), with modern Backend-as-a-Service platforms like Firebase and Supabase for rapid development.",
     },
     {
-      name: "KENYA AIRWAYS",
-      services: "DESIGN · DEVELOPMENT",
+      name: "CLOUD & DEPLOYMENT",
+      services: "AWS · VERCEL · CLOUDFLARE · DOCKER",
       description:
-        "National airline. We redesigned their booking system and mobile app for improved user experience.",
+        "Enterprise-grade cloud infrastructure with AWS for scalable applications, Vercel for seamless Next.js deployment, Cloudflare for global CDN, and Docker for containerization.",
     },
     {
-      name: "FENDY",
-      services: "RESEARCH · STRATEGY · DESIGN · DEVELOPMENT",
+      name: "PAYMENT & SAAS",
+      services: "STRIPE · PAYPAL · LEMON SQUEEZY · SUBSCRIPTION",
       description:
-        "Luxury fashion brand. We developed a comprehensive digital strategy and e-commerce solution.",
+        "Complete payment integration solutions with Stripe for comprehensive payment processing, PayPal for global reach, and Lemon Squeezy for simplified SaaS billing.",
     },
     {
-      name: "LEMA PRINT",
-      services: "RESEARCH · DESIGN",
+      name: "UI/UX & DESIGN",
+      services: "FIGMA · SHADCN/UI · FRAMER MOTION · RESPONSIVE",
       description:
-        "Print media company. We helped transition their business model to include digital services.",
-    },
-    {
-      name: "JULIA DALLAMORE",
-      services: "DESIGN · DEVELOPMENT",
-      description:
-        "Independent artist. We created a portfolio website and online store for her artwork.",
+        "Modern design workflow with Figma for prototyping, shadcn/ui for consistent component libraries, Framer Motion for smooth animations, and responsive design principles.",
     },
   ];
 
-  const images = [
+  const techLogos = [
     {
-      url: "https://images.pexels.com/photos/2041627/pexels-photo-2041627.jpeg",
-      alt: "Modern office space with bicycle",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      alt: "React",
     },
     {
-      url: "https://images.pexels.com/photos/6224/hands-people-woman-working.jpg",
-      alt: "Person working on design sketches",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", 
+      alt: "Next.js",
     },
     {
-      url: "https://images.pexels.com/photos/5989925/pexels-photo-5989925.jpeg",
-      alt: "Desk setup with design materials",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      alt: "TypeScript",
     },
     {
-      url: "https://images.pexels.com/photos/7433822/pexels-photo-7433822.jpeg",
-      alt: "Person looking at whiteboard",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      alt: "Node.js",
     },
   ];
 
@@ -92,37 +86,37 @@ export default function BrandsSection() {
     <section className="w-full bg-[#f5f5f5] py-10 lg:py-24">
       <div className="container px-4 md:px-0 max-w-[1400px] mx-auto">
         <h2 className="text-3xl sm:text-5xl md:text-4xl lg:text-[4rem] font-extralight leading-[1.1] tracking-[-0.02em] mb-24">
-          BRANDS WE&apos;VE WORKED WITH
+          TECHNOLOGY STACK
         </h2>
 
         <div className="mb-24">
-          {brands.map((brand, index) => (
+          {techStack.map((tech, index) => (
             <div key={index}>
               <div className="grid grid-cols-[1fr,auto,auto] items-center py-6 border-t border-gray-300">
-                <span className="text-[15px] font-medium">{brand.name}</span>
+                <span className="text-[15px] font-medium">{tech.name}</span>
                 <span className="text-[13px] text-gray-600 px-4">
-                  {brand.services}
+                  {tech.services}
                 </span>
                 <button
                   onClick={() =>
-                    setExpandedBrand(
-                      expandedBrand === brand.name ? null : brand.name
+                    setExpandedTech(
+                      expandedTech === tech.name ? null : tech.name
                     )
                   }
                   className="text-[13px] hover:opacity-70 transition-opacity"
-                  aria-expanded={expandedBrand === brand.name}
+                  aria-expanded={expandedTech === tech.name}
                   aria-controls={`description-${index}`}
                 >
-                  {expandedBrand === brand.name ? "LESS -" : "MORE +"}
+                  {expandedTech === tech.name ? "LESS -" : "MORE +"}
                 </button>
               </div>
-              {expandedBrand === brand.name && (
+              {expandedTech === tech.name && (
                 <div
                   id={`description-${index}`}
                   className="py-4 px-6 bg-[#f5f5f5] mt-2 mb-4"
                 >
                   <p className="text-[14px] leading-relaxed">
-                    {brand.description}
+                    {tech.description}
                   </p>
                 </div>
               )}
@@ -130,19 +124,19 @@ export default function BrandsSection() {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-24">
-          {images.map((image, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-24">
+          {techLogos.map((logo, index) => (
             <div
               key={index}
-              className="w-full"
+              className="w-full flex items-center justify-center p-8 bg-white rounded-lg shadow-sm"
               style={{ aspectRatio: "1 / 1" }}
             >
               <Image
-                src={image.url}
-                alt={image.alt}
-                width={400}
-                height={400}
-                className="object-cover w-full h-full"
+                src={logo.url}
+                alt={logo.alt}
+                width={80}
+                height={80}
+                className="object-contain w-16 h-16"
               />
             </div>
           ))}
