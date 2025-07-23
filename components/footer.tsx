@@ -1,92 +1,173 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, Github, Linkedin, Twitter, Mail, Phone } from "lucide-react";
 
 export default function SiteFooter() {
   return (
-    <section className="w-full bg-[#f5f5f5] py-24">
-      <div className="container px-4 md:px-6 max-w-[1400px] mx-auto">
-        <div className="mb-24">
-          <div className="text-[13px] mb-4">NEXT PAGE</div>
-          <div className="flex items-baseline gap-4">
-            <h1 className="text-[4.5rem] font-[350] tracking-[-0.02em]">
-              PROJECTS
-            </h1>
-            <span className="text-[2rem] font-[350]">20+</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
-          <div className="space-y-6">
-            <h2 className="text-[2rem] font-[350] leading-tight">
-              LET&apos;S BUILD SOMETHING AMAZING TOGETHER
-            </h2>
-            <Button className="bg-black text-white rounded-[1.1rem] hover:bg-black/90 text-[13px] px-6 h-10">
-              START PROJECT
+    <footer className="bg-card border-t">
+      <div className="container py-20 lg:py-32">
+        {/* Main CTA Section */}
+        <div className="text-center mb-20 animate-fade-in">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+            Ready to build something amazing?
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            Let&apos;s discuss your project and turn your ideas into reality. 
+            Whether it&apos;s a web app, mobile solution, or AI integration.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="rounded-full px-8 py-6 text-base font-medium group shadow-lg">
+              Start Your Project
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button variant="outline" size="lg" className="rounded-full px-8 py-6 text-base font-medium border-2">
+              Schedule a Call
             </Button>
           </div>
+        </div>
 
-          <div className="space-y-8">
-            <div className="space-y-2">
-              <div className="text-[13px] text-gray-600">
-                BUSINESS INQUIRIES
-              </div>
-              <div className="space-y-1">
-                <div className="text-[15px]">HELLO@EZSTUDIO.DEV</div>
-                <div className="text-[15px]">+1 (555) 123-4567</div>
-              </div>
+        {/* Footer Content Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Contact Information */}
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-bold mb-4">EZ Studio</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Transforming ideas into scalable digital solutions with modern technologies and AI integration.
+              </p>
             </div>
-
-            <div className="space-y-2">
-              <div className="text-[13px] text-gray-600">SERVICES</div>
-              <div className="space-y-1">
-                <div className="text-[15px]">WEB DEVELOPMENT</div>
-                <div className="text-[15px]">SOFTWARE DEVELOPMENT</div>
-                <div className="text-[15px]">AI INTEGRATION</div>
-                <div className="text-[15px]">MOBILE APPS</div>
-              </div>
+            
+            <div className="space-y-3">
+              <Link 
+                href="mailto:hello@ezstudio.dev" 
+                className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
+              >
+                <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                hello@ezstudio.dev
+              </Link>
+              <Link 
+                href="tel:+15551234567" 
+                className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
+              >
+                <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                +1 (555) 123-4567
+              </Link>
             </div>
           </div>
 
-          <div className="space-y-8">
-            <div className="space-y-2">
-              <div className="text-[13px] text-gray-600">SPECIALIZATIONS</div>
-              <div className="space-y-1">
-                <div className="text-[15px]">SAAS PLATFORMS</div>
-                <div className="text-[15px]">E-COMMERCE SOLUTIONS</div>
-                <div className="text-[15px]">API DEVELOPMENT</div>
-                <div className="text-[15px]">UI/UX DESIGN</div>
-              </div>
-            </div>
+          {/* Services */}
+          <div>
+            <h4 className="font-semibold mb-4">Services</h4>
+            <ul className="space-y-3">
+              {[
+                "Web Development",
+                "Software Development",
+                "AI Integration",
+                "Mobile Applications",
+                "SaaS Solutions",
+                "UI/UX Design"
+              ].map((service) => (
+                <li key={service}>
+                  <Link 
+                    href="/services" 
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {service}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className="space-y-2">
-              <div className="text-[13px] text-gray-600">TECH STACK</div>
-              <div className="space-y-1">
-                <div className="text-[15px]">REACT • NEXT.JS • TYPESCRIPT</div>
-                <div className="text-[15px]">NODE.JS • PYTHON • AI/ML</div>
-                <div className="text-[15px]">AWS • VERCEL • CLOUDFLARE</div>
-              </div>
-            </div>
+          {/* Technologies */}
+          <div>
+            <h4 className="font-semibold mb-4">Technologies</h4>
+            <ul className="space-y-3">
+              {[
+                "React & Next.js",
+                "TypeScript",
+                "Node.js & Python", 
+                "OpenAI & AI/ML",
+                "AWS & Cloud",
+                "Mobile Development"
+              ].map((tech) => (
+                <li key={tech}>
+                  <span className="text-muted-foreground">{tech}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-semibold mb-4">Company</h4>
+            <ul className="space-y-3">
+              {[
+                { label: "About Us", href: "/about" },
+                { label: "Projects", href: "/projects" },
+                { label: "Experience", href: "/experience" },
+                { label: "Contact", href: "/contact" },
+                { label: "Blog", href: "/blog" },
+                { label: "Privacy Policy", href: "/privacy" }
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link 
+                    href={item.href} 
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="flex justify-between items-center pt-8 border-t border-gray-300">
-          <div className="text-[13px]">EZ STUDIO® ©2024</div>
-          <div className="flex items-center gap-8">
-            <Link href="#" className="text-[13px] hover:opacity-70">
-              GITHUB
-            </Link>
-            <Link href="#" className="text-[13px] hover:opacity-70">
-              LINKEDIN
-            </Link>
-            <Link href="#" className="text-[13px] hover:opacity-70">
-              TWITTER
-            </Link>
-            <Link href="#" className="text-[13px] hover:opacity-70">
-              BACK TO TOP
-            </Link>
+        {/* Bottom Section */}
+        <div className="pt-8 border-t border-border">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-sm text-muted-foreground">
+              © 2024 EZ Studio. All rights reserved.
+            </div>
+            
+            <div className="flex items-center gap-6">
+              <Link 
+                href="https://github.com" 
+                className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-secondary rounded-lg"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </Link>
+              <Link 
+                href="https://linkedin.com" 
+                className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-secondary rounded-lg"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </Link>
+              <Link 
+                href="https://twitter.com" 
+                className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-secondary rounded-lg"
+                aria-label="Twitter"
+              >
+                <Twitter className="w-5 h-5" />
+              </Link>
+              
+              <div className="h-4 w-px bg-border mx-2" />
+              
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                Back to top
+                <ArrowRight className="ml-1 w-3 h-3 rotate-[-90deg]" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 }
